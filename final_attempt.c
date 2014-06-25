@@ -421,7 +421,7 @@ int schedule() {
 			if(current->remaining_cpu_time <=0)
 			{
 					next = dequeue(run_q);
-					printf("pid : %d, remaining cpu time : %d \n", current->pid,0);
+					printf("pid : %d , remaining cpu time : %d \n", current->pid,0);
 					kill(current->pid,SIGKILL);
 					current= next;
 			}//If remaining cpu burst of current process is less than or equal to 0, kill the process 
@@ -441,7 +441,7 @@ int schedule() {
 			}
  			if(current->remaining_cpu_time<=0)
 			{
-				printf("pid : %d, remaining cpu time : %d \n", current->pid,0);
+				printf("pid : %d , remaining cpu time : %d \n", current->pid,0);
 				kill(current->pid, SIGKILL); //If remaining cpu burst of current process is less than or equal to 0, kill the process
 				current = NULL;
 				if(emptyQueue(retired_q))
@@ -449,7 +449,7 @@ int schedule() {
 			}
 			else
 			{
-				printf("pid: %d, remaining cpu time : %d\n", current->pid, current->remaining_cpu_time);
+				printf("pid : %d , remaining cpu time : %d \n", current->pid, current->remaining_cpu_time);
 				enqueue(retired_q,current);
 			}
 			while(!emptyQueue(retired_q))//If retired queue is not empty
